@@ -28,7 +28,6 @@ export var getTrackCSS = function(spec) {
   } else {
     trackHeight = trackChildren * spec.slideHeight;
   }
-
   var style = {
     opacity: 1,
     WebkitTransform: !spec.vertical ? 'translate3d(' + spec.left + 'px, 0px, 0px)' : 'translate3d(0px, ' + spec.left + 'px, 0px)',
@@ -71,7 +70,7 @@ export var getTrackAnimateCSS = function (spec) {
 };
 
 export var getTrackLeft = function (spec) {
-
+console.log('track -left');
   checkSpecKeys(spec, [
    'slideIndex', 'trackRef', 'infinite', 'centerMode', 'slideCount', 'slidesToShow',
    'slidesToScroll', 'slideWidth', 'listWidth', 'variableWidth', 'slideHeight']);
@@ -114,10 +113,23 @@ export var getTrackLeft = function (spec) {
 
 
   if (spec.centerMode) {
+      console.log('center mode');
     if(spec.infinite) {
       slideOffset += spec.slideWidth * Math.floor(spec.slidesToShow / 2);
     } else {
+
+        //slick-list
+
+       // var elmnt = document.getElementById("myDIV");
+
+
+        console.log('center mode' + spec.slideWidth);
       slideOffset = spec.slideWidth * Math.floor(spec.slidesToShow / 2);
+
+
+        // if equal width
+        slideOffset = Math.floor((spec.trackWidth-(spec.slideWidth * spec.slideCount))/2) * Math.floor(spec.slidesToShow / 2);
+console.log('center mode offset new' + slideOffset)
     }
   }
 
