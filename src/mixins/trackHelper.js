@@ -156,7 +156,7 @@ console.log('center mode offset new' + slideOffset)
           }
 
           if (targetSlide) {
-            targetLeft = targetSlide.offsetLeft * -1 + (spec.listWidth - targetSlide.offsetWidth) / 2;
+            targetLeft = Math.abs(targetSlide.offsetLeft) * -1 + (spec.slideWidth - targetSlide.offsetWidth) / 2;
           }
       }
   }
